@@ -171,7 +171,12 @@
       </div>
     </header>
     <!-- end header -->
-
+    <?php
+    
+    print_r($menu);
+    die;
+    
+    ?>
     <!-- Navbar -->
     <nav>
       <div class="container">
