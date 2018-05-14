@@ -200,51 +200,18 @@
                           <div class="row">
                             <div class="col-md-12">
                               <ul class="nav">
+                                <?php
+                                
+                                $arrLevel2 = explode(',',$m->level2);
+                                foreach($arrLevel2 as $level2):
+                                  $arr = explode('::',$level2);
+                                ?>
                                 <li>
-                                  <a href="shop_grid.html">
-                                    <span>Canon</span>
+                                  <a href="<?=$arr[1]?>">
+                                    <span><?=$arr[0]?></span>
                                   </a>
                                 </li>
-                                <li>
-                                  <a href="shop_grid.html">
-                                    <span>Nikon</span>
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="shop_grid.html">
-                                    <span>Olympus</span>
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="shop_grid.html">
-                                    <span>ALPA</span>
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="shop_grid.html">
-                                    <span>Bolex</span>
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="shop_grid.html">
-                                    <span>Samsung </span>
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="shop_grid.html">
-                                    <span>Panasonic</span>
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="shop_grid.html">
-                                    <span>Thomson </span>
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="shop_grid.html">
-                                    <span>Bell & Howell</span>
-                                  </a>
-                                </li>
+                                <?php endforeach?>
                               </ul>
                             </div>
                           </div>
