@@ -190,10 +190,11 @@
                 </div>
                 <div class="mega-menu-category">
                   <ul class="nav">
-                    
+                    <?php foreach($menu as $m):?>
+                    <?php if($m->level2 != ''):?>
                     <li>
-                      <a href="#">
-                        <i class="icon fa fa-camera fa-fw"></i> Camera & Photo</a>
+                      <a href="<?=$m->url1?>">
+                        <i class="icon fa <?=$m->icon?> fa-fw"></i> <?=$m->name1?></a>
                       <div class="wrap-popup column1">
                         <div class="popup">
                           <div class="row">
@@ -250,11 +251,14 @@
                         </div>
                       </div>
                     </li>
-                    
+                    <?php else:?>
                     <li class="nosub">
-                      <a href="shop_grid.html">
-                        <i class="icon fa fa-lightbulb-o fa-fw"></i> Lights &amp; Lighting</a>
+                      <a href="<?=$m->url1?>">
+                        <i class="icon fa <?=$m->icon?> fa-fw"></i> <?=$m->name1?></a>
                     </li>
+                    <?php endif?>
+                    <?php endforeach?>
+
                   </ul>
                 </div>
               </div>
