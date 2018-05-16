@@ -74,7 +74,8 @@ $featuredProduct = $data['featuredProduct'];
                                 <?php endif?>
 
                                 <div class="pr-img-area">
-                                  <a title="Ipsums Dolors Untra" href="single_product.html">
+                                  <!-- detail.php?alias=iphone-x-64gb&id=2 -->
+                                  <a title="<?=$p->name?>" href="<?=$p->url?>-<?=$p->id?>">
                                     <figure>
                                       <img class="first-img" src="public/source/images/products/<?=$p->image?>" alt="html template">
                                       <img class="hover-img" src="public/source/images/products/<?=$p->image?>" alt="html template">
@@ -89,7 +90,7 @@ $featuredProduct = $data['featuredProduct'];
                               <div class="item-info">
                                 <div class="info-inner">
                                   <div class="item-title">
-                                    <a title="Ipsums Dolors Untra" href="single_product.html"><?=$p->name?></a>
+                                    <a title="<?=$p->name?>" href="<?=$p->url?>-<?=$p->id?>"><?=$p->name?></a>
                                   </div>
                                   <div class="item-content">
                                   <div class="item-price">
