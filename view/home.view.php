@@ -66,8 +66,13 @@ $featuredProduct = $data['featuredProduct'];
                           <div class="product-item">
                             <div class="item-inner">
                               <div class="product-thumbnail">
+                                <?php if($p->promotion_price != 0):?>
                                 <div class="icon-sale-label sale-left">Sale</div>
+                                <?php endif?>
+                                <?php if($p->new == 1):?>
                                 <div class="icon-new-label new-right">New</div>
+                                <?php endif?>
+
                                 <div class="pr-img-area">
                                   <a title="Ipsums Dolors Untra" href="single_product.html">
                                     <figure>
@@ -89,14 +94,18 @@ $featuredProduct = $data['featuredProduct'];
                                   <div class="item-content">
                                   <div class="item-price">
                                     <div class="price-box">
+                                      <?php if($p->promotion_price != 0):?>
                                       <p class="special-price">
-                                        <span class="price-label">Special Price</span>
-                                        <span class="price"> $456.00 </span>
+                                        <span class="price"> <?=number_format($p->promotion_price)?> </span>
                                       </p>
                                       <p class="old-price">
-                                        <span class="price-label">Regular Price:</span>
-                                        <span class="price"> $567.00 </span>
+                                        <span class="price"> <?=number_format($p->price) ?></span>
                                       </p>
+                                      <?php else :?>
+                                      <p class="special-price">
+                                        <span class="price"> <?=number_format($p->price)?> </span>
+                                      </p>
+                                      <?php endif ?>
                                     </div>
                                   </div>
                                   </div>
