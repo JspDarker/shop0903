@@ -8,6 +8,7 @@ class HomeController extends Controller{
         $model = new HomeModel;
         $slides = $model->selectSlide();
         $featuredProduct = $model->selectFeaturedProduct();
+        
         $data = [
             'slides'=>$slides,
             'featuredProduct'=>$featuredProduct
