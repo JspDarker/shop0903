@@ -28,6 +28,17 @@ class HomeModel extends DBConnect{
         return $this->loadMoreRows($sql);   
             
     }
+    function selectNewProduct(){
+        $sql = "SELECT p.*, u.url
+                FROM products p 
+                INNER JOIN page_url u 
+                ON u.id = p.id_url
+                WHERE new =1
+                AND status <> 1
+                LIMIT 0,10";
+        return $this->loadMoreRows($sql);   
+            
+    }
 }
 
 
