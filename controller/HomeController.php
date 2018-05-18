@@ -8,10 +8,11 @@ class HomeController extends Controller{
         $model = new HomeModel;
         $slides = $model->selectSlide();
         $featuredProduct = $model->selectFeaturedProduct();
-        
+        $bestSellers = $model->selectBestSeller();
         $data = [
             'slides'=>$slides,
-            'featuredProduct'=>$featuredProduct
+            'featuredProduct'=>$featuredProduct,
+            'bestSellers' => $bestSellers
         ];
         return $this->loadView('home',$data);
     }
