@@ -5,11 +5,15 @@ include_once "model/TypeModel.php";
 class TypeController extends Controller{
 
     function loadPageType(){
-        $alias = $_GET['type'];
+        $alias = isset($_GET['type']) ? $_GET['type'] : '';
+        if($alias == ''){
+            header('Location:404.apsx'); // apsx xem .htaccess
+            return;
+        }
         $model = new TypeModel;
-        $level2 = $model->selectProductLevel2($alias);
+        $products = $model->selectProductLevel2($alias);
         $data = [
-            'level2'=>$level2
+            'products'=>$products
         ];
 
         return $this->loadView('type',$data);

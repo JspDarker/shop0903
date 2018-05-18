@@ -17,6 +17,15 @@ class TypeModel extends DBConnect{
                 )";
         return $this->loadMoreRows($sql);
     }
+
+    function getNameType($alias){
+        $sql = "SELECT c.name
+                FROM categories c 
+                INNER JOIN page_url u 
+                ON c.id_url = u.id
+                WHERE u.url = '$alias'";
+        return $this->loadOneRow($sql);
+    }
 }
 
 
