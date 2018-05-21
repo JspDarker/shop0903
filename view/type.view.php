@@ -46,7 +46,7 @@ $products = $data['products'];
             </div>
             <div class="shop-inner">
               <div class="page-title">
-                <h2>Apple</h2>
+                <h2><?=$data['nametype']?></h2>
               </div>
 
               <div class="product-grid-area">

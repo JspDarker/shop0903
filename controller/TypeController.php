@@ -11,9 +11,11 @@ class TypeController extends Controller{
             return;
         }
         $model = new TypeModel;
+        $type = $model->getNameType($alias);
         $products = $model->selectProductLevel2($alias);
         $data = [
-            'products'=>$products
+            'products'=>$products,
+            'nametype'=>$type->name
         ];
 
         return $this->loadView('type',$data);
