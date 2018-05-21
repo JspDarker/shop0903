@@ -52,7 +52,7 @@ $products = $data['products'];
               <div class="product-grid-area">
                 <ul class="products-grid">
                   <?php foreach($products as $p):?>
-                  <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+                  <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 " style="height:350px">
                     <div class="product-item">
                       <div class="item-inner">
                           <div class="product-thumbnail">
@@ -110,22 +110,7 @@ $products = $data['products'];
                 </ul>
               </div>
               <div class="pagination-area ">
-                <ul>
-                  <li>
-                    <a class="active" href="#">1</a>
-                  </li>
-                  <li>
-                    <a href="#">2</a>
-                  </li>
-                  <li>
-                    <a href="#">3</a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-angle-right"></i>
-                    </a>
-                  </li>
-                </ul>
+                <?=$data['pagination']?>
               </div>
             </div>
           </div>

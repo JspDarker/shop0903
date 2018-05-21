@@ -3,7 +3,7 @@ require_once 'DBConnect.php';
 
 class TypeModel extends DBConnect{
 
-    function selectProductLevel1($alias){
+    function selectProductLevel1($alias, $position = 0, $qty=9){
         $sql = "SELECT p.*, pu.url
                 FROM products p 
                 INNER JOIN page_url pu 
@@ -18,11 +18,15 @@ class TypeModel extends DBConnect{
                         ON c.id_url = u.id
                         WHERE u.url = '$alias'
                     )
-                )";
+                ) ";
+        if($position >= 0 && $qty > 0){
+            $sql.= " LIMIT $position, $qty";
+        }
+
         return $this->loadMoreRows($sql);
     }
 
-    function selectProductLevel2($alias){
+    function selectProductLevel2($alias, $position = 0, $qty=9){
         $sql = "SELECT p.* , u.url
                 FROM products p 
                 INNER JOIN page_url u 
@@ -34,6 +38,9 @@ class TypeModel extends DBConnect{
                     ON c.id_url = u.id
                     WHERE u.url = '$alias'
                 )";
+        if($position >= 0 && $qty > 0){
+            $sql.= " LIMIT $position, $qty";
+        }
         return $this->loadMoreRows($sql);
     }
 
