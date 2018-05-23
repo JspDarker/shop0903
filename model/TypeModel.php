@@ -52,6 +52,17 @@ class TypeModel extends DBConnect{
                 WHERE u.url = '$slug'";
         return $this->loadOneRow($sql);
     }
+
+    function selectAllType(){
+        $sql = "SELECT count(p.id) as soluong , c.name, pu.url
+                FROM products p
+                INNER JOIN categories c 
+                ON p.id_type = c.id 
+                INNER JOIN page_url pu 
+                ON c.id_url = pu.id
+                GROUP BY c.id";
+        return $this->loadMoreRows($sql);
+    }
 }
 
 

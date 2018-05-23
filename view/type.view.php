@@ -1,6 +1,8 @@
 <?php
 $products = $data['products'];
-//print_r($level2);
+$allType = $data['allType'];
+// print_r($allType);
+// die;
 
 ?>
 <!-- Main Container -->
@@ -115,175 +117,27 @@ $products = $data['products'];
             </div>
           </div>
           <aside class="sidebar col-sm-3 col-xs-12 col-sm-pull-9">
-            <div class="block category-sidebar">
-              <div class="sidebar-title">
-                <h3>Categories</h3>
-              </div>
-              <ul class="product-categories">
-                <li class="cat-item current-cat cat-parent">
-                  <a href="shop_grid.html">Women</a>
-                  <ul class="children">
-                    <li class="cat-item cat-parent">
-                      <a href="shop_grid.html">
-                        <i class="fa fa-angle-right"></i>&nbsp; Accessories</a>
-                      <ul class="children">
-                        <li class="cat-item">
-                          <a href="shop_grid.html">
-                            <i class="fa fa-angle-right"></i>&nbsp; Dresses</a>
-                        </li>
-                        <li class="cat-item cat-parent">
-                          <a href="shop_grid.html">
-                            <i class="fa fa-angle-right"></i>&nbsp; Handbags</a>
-                          <ul style="display: none;" class="children">
-                            <li class="cat-item">
-                              <a href="shop_grid.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Beaded Handbags</a>
-                            </li>
-                            <li class="cat-item">
-                              <a href="shop_grid.html">
-                                <i class="fa fa-angle-right"></i>&nbsp; Sling bag</a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="cat-item cat-parent">
-                      <a href="shop_grid.html">
-                        <i class="fa fa-angle-right"></i>&nbsp; Handbags</a>
-                      <ul class="children">
-                        <li class="cat-item">
-                          <a href="shop_grid.html">
-                            <i class="fa fa-angle-right"></i>&nbsp; backpack</a>
-                        </li>
-                        <li class="cat-item">
-                          <a href="shop_grid.html">
-                            <i class="fa fa-angle-right"></i>&nbsp; Beaded Handbags</a>
-                        </li>
-                        <li class="cat-item">
-                          <a href="shop_grid.html">
-                            <i class="fa fa-angle-right"></i>&nbsp; Fabric Handbags</a>
-                        </li>
-                        <li class="cat-item">
-                          <a href="shop_grid.html">
-                            <i class="fa fa-angle-right"></i>&nbsp; Sling bag</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="cat-item">
-                      <a href="shop_grid.html">
-                        <i class="fa fa-angle-right"></i>&nbsp; Jewellery</a>
-                    </li>
-                    <li class="cat-item">
-                      <a href="shop_grid.html">
-                        <i class="fa fa-angle-right"></i>&nbsp; Swimwear</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="cat-item cat-parent">
-                  <a href="shop_grid.html">Men</a>
-                  <ul class="children">
-                    <li class="cat-item cat-parent">
-                      <a href="shop_grid.html">
-                        <i class="fa fa-angle-right"></i>&nbsp; Dresses</a>
-                      <ul class="children">
-                        <li class="cat-item">
-                          <a href="shop_grid.html">
-                            <i class="fa fa-angle-right"></i>&nbsp; Casual</a>
-                        </li>
-                        <li class="cat-item">
-                          <a href="shop_grid.html">
-                            <i class="fa fa-angle-right"></i>&nbsp; Designer</a>
-                        </li>
-                        <li class="cat-item">
-                          <a href="shop_grid.html">
-                            <i class="fa fa-angle-right"></i>&nbsp; Evening</a>
-                        </li>
-                        <li class="cat-item">
-                          <a href="shop_grid.html">
-                            <i class="fa fa-angle-right"></i>&nbsp; Hoodies</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="cat-item">
-                      <a href="shop_grid.html">
-                        <i class="fa fa-angle-right"></i>&nbsp; Jackets</a>
-                    </li>
-                    <li class="cat-item">
-                      <a href="shop_grid.html">
-                        <i class="fa fa-angle-right"></i>&nbsp; Shoes</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="cat-item">
-                  <a href="shop_grid.html">Electronics</a>
-                </li>
-                <li class="cat-item">
-                  <a href="shop_grid.html">Furniture</a>
-                </li>
-                <li class="cat-item">
-                  <a href="shop_grid.html">KItchen</a>
-                </li>
-              </ul>
-            </div>
+            
             <div class="block shop-by-side">
               <div class="sidebar-bar-title">
                 <h3>Shop By</h3>
               </div>
+              
               <div class="block-content">
                 <p class="block-subtitle">Shopping Options</p>
                 <div class="layered-Category">
                   <h2 class="saider-bar-title">Categories</h2>
                   <div class="layered-content">
                     <ul class="check-box-list">
-                      <li>
-                        <input type="checkbox" id="jtv1" name="jtvc">
-                        <label for="jtv1">
-                          <span class="button"></span> Camera & Photo
-                          <span class="count">(12)</span>
-                        </label>
-                      </li>
-                      <li>
-                        <input type="checkbox" id="jtv2" name="jtvc">
-                        <label for="jtv2">
-                          <span class="button"></span> Computers
-                          <span class="count">(18)</span>
-                        </label>
-                      </li>
-                      <li>
-                        <input type="checkbox" id="jtv3" name="jtvc">
-                        <label for="jtv3">
-                          <span class="button"></span> Apple Store
-                          <span class="count">(15)</span>
-                        </label>
-                      </li>
-                      <li>
-                        <input type="checkbox" id="jtv4" name="jtvc">
-                        <label for="jtv4">
-                          <span class="button"></span> Car Electronic
-                          <span class="count">(03)</span>
-                        </label>
-                      </li>
-                      <li>
-                        <input type="checkbox" id="jtv5" name="jtvc">
-                        <label for="jtv5">
-                          <span class="button"></span> Accessories
-                          <span class="count">(04)</span>
-                        </label>
-                      </li>
-                      <li>
-                        <input type="checkbox" id="jtv7" name="jtvc">
-                        <label for="jtv7">
-                          <span class="button"></span> Game & Video
-                          <span class="count">(07)</span>
-                        </label>
-                      </li>
-                      <li>
-                        <input type="checkbox" id="jtv8" name="jtvc">
-                        <label for="jtv8">
-                          <span class="button"></span> Best selling
-                          <span class="count">(05)</span>
-                        </label>
-                      </li>
+                      <?php foreach($allType as $type):?>
+                        <li>
+                            <input type="checkbox" id="<?=$type->url?>" name="jtvc">
+                            <label class="cate-list" for="<?=$type->url?>">
+                            <span class="button"></span><?=$type->name?>
+                            <span class="count">(<?=$type->soluong?>)</span>
+                            </label>
+                        </li>
+                      <?php endforeach?>
                     </ul>
                   </div>
                 </div>
@@ -495,3 +349,27 @@ $products = $data['products'];
       </div>
     </div>
     <!-- Main Container End -->
+  
+<!-- jquery js -->
+<script type="text/javascript" src="public/source/js/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.cate-list').click(function(){
+            var tenkhongdau = $(this).attr('for')
+            $.ajax({
+                url:"ajax-categories.php",
+                type: "GET",
+                data:{
+                    alias: tenkhongdau // $_GET['alias']
+                },
+                success:function(response){
+                    console.log(response) 
+                },
+                error:function(error){
+                    console.log(error)
+                }
+            })
+        })
+    })
+
+</script>

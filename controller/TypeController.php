@@ -31,13 +31,17 @@ class TypeController extends Controller{
         $pager = new Pager($totalProduct,$page,$qty,$pageShow);
         $pagination = $pager->showPagination();
         //print_r($products);die;
-        $data = [
+
+        $allType = $model->selectAllType();
+        
+        $result = [
+            'allType'=>$allType,
             'products'=>$products,
             'nametype'=>$type->name,
             'pagination'=>$pagination
         ];
 
-        return $this->loadView('type',$data);
+        return $this->loadView('type',$result);
     }
 }
 
