@@ -47,7 +47,7 @@ class TypeController extends Controller{
     function AjaxCategories(){
         $alias = $_GET['alias'];
         $model = new TypeModel;
-        $products = $model->selectProductLevel2($alias);
+        $products = $model->selectProductLevel2($alias,-1,-1);
         $data = [
             'products'=>$products,
             'alias'=>$alias
