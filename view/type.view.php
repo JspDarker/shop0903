@@ -354,8 +354,11 @@ $allType = $data['allType'];
 <script type="text/javascript" src="public/source/js/jquery.min.js"></script>
 <script>
     $(document).ready(function(){
+        var oldData = $('.products-grid').html()
+            
         $('.cate-list').click(function(){
             var tenkhongdau = $(this).attr('for')
+            
             $.ajax({
                 url:"ajax-categories.php",
                 type: "GET",
@@ -363,12 +366,30 @@ $allType = $data['allType'];
                     alias: tenkhongdau // $_GET['alias']
                 },
                 success:function(response){
-                    console.log(response) 
+                  if($('#exist').length !=0){
+                    if($('#new-'+tenkhongdau).length ==0){
+                      $('.products-grid').append(response) //add
+                    }
+                    else{
+                      $('#new-'+tenkhongdau).remove()
+                    }
+                  }
+                  else{
+                    
+                    $('.products-grid').attr('id','exist')
+                    $('.products-grid').html(response) //replace
+                    
+                  }
+                  if($('.products-grid').is(':empty')){
+                    $('.products-grid').html(oldData)
+                    $('.products-grid').attr('id','');
+                  }
                 },
                 error:function(error){
                     console.log(error)
                 }
             })
+            
         })
     })
 

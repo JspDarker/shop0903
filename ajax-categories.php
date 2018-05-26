@@ -1,5 +1,6 @@
 <?php
 
-echo $_GET['alias'];
-
+include_once 'controller/TypeController.php';
+$c = new TypeController;
+return $c->AjaxCategories();
 ?>

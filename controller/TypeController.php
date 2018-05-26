@@ -43,6 +43,18 @@ class TypeController extends Controller{
 
         return $this->loadView('type',$result);
     }
+
+    function AjaxCategories(){
+        $alias = $_GET['alias'];
+        $model = new TypeModel;
+        $products = $model->selectProductLevel2($alias);
+        $data = [
+            'products'=>$products,
+            'alias'=>$alias
+        ];
+        return $this->loadViewAjax('category',$data);
+        
+    }
 }
 
 

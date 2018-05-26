@@ -6,10 +6,11 @@ class Controller{
     function loadView($view, $data = []){
         $model = new BaseModel;
         $menu = $model->selectMenu();
-        
         include_once 'view/layout.view.php';
-        
     }   
+    function loadViewAjax($view, $data=[]){
+        include_once "view/ajax/$view.view.php";
+    }
 }
 
 
