@@ -3,7 +3,7 @@ require_once "model/BaseModel.php";
 
 class Controller{
 
-    function loadView($view, $data = []){
+    function loadView($view, $data = [], $title = 'Trang chủ'){
         $model = new BaseModel;
         $menu = $model->selectMenu();
         include_once 'view/layout.view.php';

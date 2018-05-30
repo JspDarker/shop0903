@@ -41,7 +41,7 @@ class TypeController extends Controller{
             'pagination'=>$pagination
         ];
 
-        return $this->loadView('type',$result);
+        return $this->loadView('type',$result, $type->name );
     }
 
     function AjaxCategories(){
@@ -53,7 +53,6 @@ class TypeController extends Controller{
             'alias'=>$alias
         ];
         return $this->loadViewAjax('category',$data);
-        
     }
 }
 
