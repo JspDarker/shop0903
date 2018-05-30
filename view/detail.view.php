@@ -1,3 +1,6 @@
+<?php
+$product = $data['product'];
+?>
 <!-- Main Container -->
 <div class="main-container col1-layout">
       <div class="container">
@@ -7,24 +10,31 @@
               <div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
                 <div class="icon-sale-label sale-left">Sale</div>
                 <div class="large-image">
-                  <a href="public/source/images/products/img03.jpg" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20">
-                    <img class="zoom-img" src="public/source/images/products/img03.jpg" alt="products"> </a>
+                  <a href="public/source/images/products/<?=$product->image?>" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20">
+                    <img class="zoom-img" src="public/source/images/products/<?=$product->image?>" alt="products"> </a>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-7 col-lg-7 col-md-7 product-details-area">
 
                 <div class="product-name">
-                  <h1><?=$data['name']?></h1>
+                  <h1><?=$product->name?></h1>
                 </div>
                 <div class="price-box">
+                  <?php if($product->promotion_price!=0):?>
                   <p class="special-price">
-                    <span class="price-label">Special Price</span>
-                    <span class="price"> $329.99 </span>
+                    <span class="price-label">Giá khuyến mãi</span>
+                    <span class="price"> <?=number_format($product->promotion_price)?> vnđ</span>
                   </p>
                   <p class="old-price">
-                    <span class="price-label">Regular Price:</span>
-                    <span class="price"> $359.99 </span>
+                    <span class="price-label">Giá gốc:</span>
+                    <span class="price"> <?=number_format($product->price)?> vnđ </span>
                   </p>
+                  <?php else:?>
+                  <p class="special-price">
+                    <span class="price-label">Đơn giá</span>
+                    <span class="price"> <?=number_format($product->price)?> vnđ </span>
+                  </p>
+                  <?php endif?>
                 </div>
 
                 <div class="short-description">
