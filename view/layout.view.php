@@ -553,6 +553,28 @@
       });
     </script>
   <?php endif?>
+<script>
+  $(document).ready(function(){
+    $('.add-to-cart-mt').click(function(){
+      var idSP = $(this).attr('id-sp')
+        $.ajax({
+          url: 'cart.php',
+          type:"POST",
+          data:{
+            id: idSP // $_POST['id']
+          },
+          success:function(res){
+            console.log(res)
+          },
+          error:function(){
+            console.log('errr')
+          }
+        })
+    })
+  })
+
+
+</script>
 
 </body>
 

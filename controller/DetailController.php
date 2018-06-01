@@ -11,11 +11,16 @@ class DetailController extends Controller {
 
         $model = new DetailModel();
         $product = $model->getDetailProduct($alias, $id);
+
+        $type = $product->id_type;
+        $relatedProducts = $model->selectProductByType($type,$id);
+        //print_r($relatedProducts); die;
         if($product == ''){
             header('location:404.php');
         }
         $data = [
-            'product'=>$product
+            'product'=>$product,
+            'relatedProducts'=>$relatedProducts
         ];
         $this->loadView('detail',$data, $product->name);
     }
