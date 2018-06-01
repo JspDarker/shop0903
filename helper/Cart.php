@@ -69,7 +69,8 @@ class Cart
 		$this->totalQty = $this->totalQty + $qty;
 		$this->totalPrice = $this->totalPrice + ($giohang['item']->price)*$qty;
 		$this->promtPrice = $this->promtPrice + ($giohang['item']->promotion_price)*$qty;
-	}
+    }
+    
 	//xóa 1
 	public function reduceByOne($id){ 
 		$this->items[$id]['qty']--;

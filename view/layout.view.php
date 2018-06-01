@@ -281,6 +281,24 @@
 
     <?php include_once "$view.view.php" ;?>
 
+<!-- Modal -->
+<div id="cartModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <h5>Đã thêm <i class="name-res">...</i> vào giỏ hàng</h5>
+        <h6><a href="shopping-cart.php">Xem giỏ hàng</a></h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
     <!-- Footer -->
 
     <footer>
@@ -564,7 +582,8 @@
             id: idSP // $_POST['id']
           },
           success:function(res){
-            console.log(res)
+              $('.name-res').html(res)
+              $('#cartModal').modal('show')
           },
           error:function(){
             console.log('errr')
