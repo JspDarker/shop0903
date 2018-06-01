@@ -106,7 +106,7 @@ $relatedProducts = $data['relatedProducts'];
                                       <img class="hover-img" src="public/source/images/products/<?=$p->image?>" alt="html template">
                                     </figure>
                                   </a>
-                                  <button type="button" class="add-to-cart-mt">
+                                  <button id-sp="<?=$p->id?>" type="button" class="add-to-cart-mt">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span> Add to Cart</span>
                                   </button>
