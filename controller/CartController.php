@@ -7,7 +7,9 @@ session_start();
 class CartController extends Controller{
 
     function loadShoppingCart(){
-        return $this->loadView('shopping-cart');
+        $oldCart = isset($_SESSION['cart']) ? $_SESSION['cart'] : null;
+        $cart = new Cart($oldCart);
+        return $this->loadView('shopping-cart',$cart,"Giỏ hàng của bạn");
     }
 
     function addToCart(){
