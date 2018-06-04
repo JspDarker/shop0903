@@ -590,7 +590,26 @@
           }
         })
     })
+    $('.pro-add-to-cart').click(function(){
+      var idSP = $(this).attr('id-sp')
+      
+        $.ajax({
+          url: 'cart.php',
+          type:"POST",
+          data:{
+            id: idSP // $_POST['id']
+          },
+          success:function(res){
+              $('.name-res').html(res)
+              $('#cartModal').modal('show')
+          },
+          error:function(){
+            console.log('errr')
+          }
+        })
+    })
   })
+  
 
 
 </script>
