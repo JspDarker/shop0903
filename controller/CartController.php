@@ -24,6 +24,14 @@ class CartController extends Controller{
         $_SESSION['cart'] = $cart;
         echo $cart->items[$id]['item']->name;
     }
+
+    function deleteCart(){
+        echo $_POST['id'];
+        
+    }
+    function updateCart(){
+        
+    }
 }
 
 

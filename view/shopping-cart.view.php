@@ -49,7 +49,7 @@
                       <td class="qty"><input class="form-control input-sm" type="text" value="<?=$sp['qty']?>"></td>
                       <td class="price"><span><?=number_format($sp['discountPrice'])?> vnd</span></td>
                       <td class="action">
-                        <a href="#" class="remove-item-cart" id-sp="<?=$idSP?>"><i class="icon-close"></i></a></td>
+                        <a class="remove-item-cart" id-sp="<?=$idSP?>"><i class="icon-close"></i></a></td>
                     </tr>
                     <?php endforeach?>
                   </tbody>
@@ -85,7 +85,8 @@
         url: "cart.php",
         type: "POST",
         data:{
-          id:idSP
+          id:idSP,
+          action: "delete"
         },
         success:function(res){
           console.log(res)
