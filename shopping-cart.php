@@ -1,7 +1,7 @@
 <?php
-include_once "controller/ShoppingCartController.php";
+include_once "controller/CartController.php";
 
-$c = new ShoppingCartController;
+$c = new CartController;
 return $c->loadShoppingCart();
 
 ?>

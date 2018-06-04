@@ -590,14 +590,17 @@
           }
         })
     })
+    
     $('.pro-add-to-cart').click(function(){
       var idSP = $(this).attr('id-sp')
-      
+      var soluong = $('#qty').val()
+      //console.log(soluong,idSP)
         $.ajax({
           url: 'cart.php',
           type:"POST",
           data:{
-            id: idSP // $_POST['id']
+            id: idSP, // $_POST['id']
+            qty: soluong // $_POST['qty']
           },
           success:function(res){
               $('.name-res').html(res)
@@ -608,6 +611,7 @@
           }
         })
     })
+    
   })
   
 

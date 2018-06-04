@@ -45,7 +45,6 @@ $relatedProducts = $data['relatedProducts'];
                 </div>
 
                 <div class="product-variation">
-                  <form action="#" method="post">
                     <div class="cart-plus-minus">
                       <label for="qty">Quantity:</label>
                       <div class="numbers-row">
@@ -59,11 +58,10 @@ $relatedProducts = $data['relatedProducts'];
                         </div>
                       </div>
                     </div>
-                    <button class="button pro-add-to-cart" title="Add to Cart" type="button">
+                    <button id-sp="<?=$product->id?>" class="button pro-add-to-cart" title="Add to Cart" type="button">
                       <span>
                         <i class="fa fa-shopping-cart"></i> Add to Cart</span>
                     </button>
-                  </form>
                 </div>
 
               </div>

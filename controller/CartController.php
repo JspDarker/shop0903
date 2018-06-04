@@ -1,13 +1,18 @@
 <?php
+include_once 'Controller.php';
 include_once 'model/DetailModel.php';
 include_once 'helper/Cart.php';
 session_start();
 
-class CartController{
+class CartController extends Controller{
+
+    function loadShoppingCart(){
+        return $this->loadView('shopping-cart');
+    }
 
     function addToCart(){
         $id = $_POST['id'];
-        $qty = 1;
+        $qty =  isset($_POST['qty']) ? (int)$_POST['qty'] : 1;
         $model = new DetailModel;
         $product = $model->selectProductById($id);
         
