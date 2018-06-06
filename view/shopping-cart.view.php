@@ -118,9 +118,8 @@
       var idSP = $(this).attr('id-sp')
 
       timer = window.setTimeout(function(){
-        console.log(soluong)
-        console.log( idSP)
-			
+        // console.log(soluong)
+        // console.log( idSP)
         $.ajax({
           url: "cart.php",
           type: "POST",
@@ -133,7 +132,6 @@
             console.log(res)
           }
         })
-
 			}, 1000);
 		})
   })

@@ -41,7 +41,8 @@ class CartController extends Controller{
         //print_r($_SESSION['cart']);
     }
     function updateCart(){
-        
+        echo $_POST['id'];
+        echo $_POST['qty'];
     }
 }
 
