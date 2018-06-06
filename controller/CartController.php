@@ -26,8 +26,19 @@ class CartController extends Controller{
     }
 
     function deleteCart(){
-        echo $_POST['id'];
-        
+        $id = $_POST['id'];
+
+        $oldCart = isset($_SESSION['cart']) ? $_SESSION['cart'] : null;
+        $cart = new Cart($oldCart);
+        $cart->removeItem($id);
+        $_SESSION['cart'] = $cart;
+
+        echo json_encode([
+            'totalPrice'=>number_format($cart->totalPrice),
+            'promtPrice'=>number_format($cart->promtPrice)
+        ]);
+
+        //print_r($_SESSION['cart']);
     }
     function updateCart(){
         

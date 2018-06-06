@@ -28,7 +28,7 @@
                   </thead>
                   <tbody>
                     <?php foreach($data->items as $idSP => $sp):?>
-                    <tr>
+                    <tr id="cart-row-<?=$idSP?>">
                       <td class="cart_product">
                         <a href="#">
                           <img src="public/source/images/products/<?=$sp['item']->image?>" alt="Product">
@@ -49,7 +49,7 @@
                       <td class="qty"><input class="form-control input-sm" type="text" value="<?=$sp['qty']?>"></td>
                       <td class="price"><span><?=number_format($sp['discountPrice'])?> vnd</span></td>
                       <td class="action">
-                        <a class="remove-item-cart" id-sp="<?=$idSP?>"><i class="icon-close"></i></a></td>
+                        <a style="cursor: pointer;" class="remove-item-cart" id-sp="<?=$idSP?>"><i class="icon-close"></i></a></td>
                     </tr>
                     <?php endforeach?>
                   </tbody>
@@ -57,11 +57,11 @@
                     <tr>
                       <td colspan="2" rowspan="2"></td>
                       <td colspan="3">Đơn giá gốc (chưa khuyến mãi)</td>
-                      <td colspan="2"><?=number_format($data->totalPrice)?> vnd</td>
+                      <td colspan="2" class="totalPrice"><?=number_format($data->totalPrice)?> vnd</td>
                     </tr>
                     <tr>
                       <td colspan="3"><strong>Tổng thanh toán</strong></td>
-                      <td colspan="2"><strong><?=number_format($data->promtPrice)?> vnd</strong></td>
+                      <td colspan="2"><strong class="promtPrice"><?=number_format($data->promtPrice)?> vnd</strong></td>
                     </tr>
                   </tfoot>
                 </table>
@@ -89,7 +89,10 @@
           action: "delete"
         },
         success:function(res){
-          console.log(res)
+          $('#cart-row-'+idSP).hide(500)
+          res = JSON.parse(res)
+          $('.promtPrice').html(res.promtPrice + ' vnd')          
+          $('.totalPrice').html(res.totalPrice + ' vnd')
         },
         error:function(){
           console.log('errrrr')
