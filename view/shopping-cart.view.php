@@ -46,7 +46,9 @@
                           <span><?=number_format($sp['item']->price)?> vnd</span>
                         <?php endif?>
                       </td>
-                      <td class="qty"><input class="form-control input-sm" type="text" value="<?=$sp['qty']?>"></td>
+                      <td class="qty">
+                        <input id-sp="<?=$idSP?>" class="form-control input-sm" type="text" value="<?=$sp['qty']?>">
+                      </td>
                       <td class="price"><span><?=number_format($sp['discountPrice'])?> vnd</span></td>
                       <td class="action">
                         <a style="cursor: pointer;" class="remove-item-cart" id-sp="<?=$idSP?>"><i class="icon-close"></i></a></td>
@@ -88,9 +90,10 @@
           id:idSP,
           action: "delete"
         },
+        dataType: "JSON",
         success:function(res){
           $('#cart-row-'+idSP).hide(500)
-          res = JSON.parse(res)
+          //res = JSON.parse(res)
           $('.promtPrice').html(res.promtPrice + ' vnd')          
           $('.totalPrice').html(res.totalPrice + ' vnd')
         },
@@ -99,6 +102,40 @@
         }
       })
     })
+
+    var timer;
+		$('.input-sm').keyup(function() {
+      
+			window.clearTimeout(timer);
+
+      var soluong = $(this).val()
+      if(isNaN(soluong)){
+        alert("Nhập số")
+        $(this).val('')
+        $(this).focus()
+        return;
+      }
+      var idSP = $(this).attr('id-sp')
+
+      timer = window.setTimeout(function(){
+        console.log(soluong)
+        console.log( idSP)
+			
+        $.ajax({
+          url: "cart.php",
+          type: "POST",
+          data:{
+            qty: soluong,
+            id:idSP,
+            action: "update"
+          },
+          success:function(res){
+            console.log(res)
+          }
+        })
+
+			}, 1000);
+		})
   })
 
 </script>
