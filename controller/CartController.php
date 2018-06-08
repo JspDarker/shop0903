@@ -41,8 +41,25 @@ class CartController extends Controller{
         //print_r($_SESSION['cart']);
     }
     function updateCart(){
-        echo $_POST['id'];
-        echo $_POST['qty'];
+        $id = $_POST['id'];
+        $qty = $_POST['qty'];
+
+        $model = new DetailModel;
+        $product = $model->selectProductById($id);
+
+        $oldCart = isset($_SESSION['cart']) ? $_SESSION['cart'] : null;        
+        $cart = new Cart($oldCart);
+        $cart->update($product, $qty);
+
+        $_SESSION['cart'] = $cart;
+        
+        echo json_encode([
+            'discountPrice' => number_format($cart->items[$id]['discountPrice']),
+            'totalPrice'=>number_format($cart->totalPrice),
+            'promtPrice'=>number_format($cart->promtPrice)
+        ]);
+        //print_r($_SESSION['cart']);
+
     }
 }
 

@@ -105,9 +105,7 @@
 
     var timer;
 		$('.input-sm').keyup(function() {
-      
 			window.clearTimeout(timer);
-
       var soluong = $(this).val()
       if(isNaN(soluong)){
         alert("Nhập số")
@@ -116,7 +114,7 @@
         return;
       }
       var idSP = $(this).attr('id-sp')
-
+      
       timer = window.setTimeout(function(){
         // console.log(soluong)
         // console.log( idSP)
