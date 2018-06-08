@@ -49,7 +49,9 @@
                       <td class="qty">
                         <input id-sp="<?=$idSP?>" class="form-control input-sm" type="text" value="<?=$sp['qty']?>">
                       </td>
-                      <td class="price"><span><?=number_format($sp['discountPrice'])?> vnd</span></td>
+                      <td class="price">
+                        <span id="discountPrice-<?=$idSP?>"><?=number_format($sp['discountPrice'])?> vnd</span>
+                      </td>
                       <td class="action">
                         <a style="cursor: pointer;" class="remove-item-cart" id-sp="<?=$idSP?>"><i class="icon-close"></i></a></td>
                     </tr>
@@ -126,8 +128,12 @@
             id:idSP,
             action: "update"
           },
+          dataType:"JSON",
           success:function(res){
             console.log(res)
+            $('#discountPrice-'+idSP).html(res.discountPrice + ' vnd')
+            $('.promtPrice').html(res.promtPrice + ' vnd')          
+            $('.totalPrice').html(res.totalPrice + ' vnd')
           }
         })
 			}, 1000);
