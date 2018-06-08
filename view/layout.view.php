@@ -1,3 +1,6 @@
+<?php 
+!isset($_SESSION) ? session_start(): '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -152,14 +155,27 @@
             <div class="col-lg-3 col-xs-3 top-cart">
               <div class="top-cart-contain">
                 <div class="mini-cart">
-                  <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle">
-                    <a href="#">
+                  <div class="basket dropdown-toggle">
+                    <a href="shopping-cart.php">
                       <div class="cart-icon">
                         <i class="fa fa-shopping-cart"></i>
                       </div>
                       <div class="shoppingcart-inner hidden-xs">
-                        <span class="cart-title">Shopping Cart</span>
-                        <span class="cart-total">4 Item(s): $520.00</span>
+                        <span class="cart-title">Giỏ hàng của bạn</span>
+                        
+                        <span class="cart-total">
+                          <?php 
+                          if(isset($_SESSION['cart'])){
+                            echo $_SESSION['cart']->totalQty;
+                            echo " item(s) - ";
+                            echo number_format($_SESSION['cart']->promtPrice);
+                            echo " vnd";
+                          }
+                          else{
+                            echo 0;
+                          }
+                          ?>
+                        </span>
                       </div>
                     </a>
                   </div>

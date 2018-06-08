@@ -1,5 +1,6 @@
 <?php
 require_once "model/BaseModel.php";
+require_once "helper/Cart.php";
 
 class Controller{
 

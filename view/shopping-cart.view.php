@@ -1,6 +1,6 @@
 <?php
 //print_r($data);die;
-        
+
 
 
 ?>
@@ -27,50 +27,53 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php foreach($data->items as $idSP => $sp):?>
-                    <tr id="cart-row-<?=$idSP?>">
+                    <?php foreach ($data->items as $idSP => $sp) : ?>
+                    <tr id="cart-row-<?= $idSP ?>">
                       <td class="cart_product">
                         <a href="#">
-                          <img src="public/source/images/products/<?=$sp['item']->image?>" alt="Product">
+                          <img src="public/source/images/products/<?= $sp['item']->image ?>" alt="Product">
                         </a>
                       </td>
                       <td class="cart_description"><p class="product-name">
-                        <a href="#"><?=$sp['item']->name?></a></p>
+                        <a href="#"><?= $sp['item']->name ?></a></p>
                       </td>
                       <td class="price">
-                        <?php if($sp['item']->promotion_price!=$sp['item']->price):?>
-                          <span><?=number_format($sp['item']->promotion_price)?> vnd</span>
+                        <?php if ($sp['item']->promotion_price != $sp['item']->price) : ?>
+                          <span><?= number_format($sp['item']->promotion_price) ?> vnd</span>
                           <br>
-                          <del style="color:darkgrey"><?=number_format($sp['item']->price)?> vnd</del>
-                        <?php else :?>
-                          <span><?=number_format($sp['item']->price)?> vnd</span>
-                        <?php endif?>
+                          <del style="color:darkgrey"><?= number_format($sp['item']->price) ?> vnd</del>
+                        <?php else : ?>
+                          <span><?= number_format($sp['item']->price) ?> vnd</span>
+                        <?php endif ?>
                       </td>
                       <td class="qty">
-                        <input id-sp="<?=$idSP?>" class="form-control input-sm" type="text" value="<?=$sp['qty']?>">
+                        <input id-sp="<?= $idSP ?>" class="form-control input-sm" type="text" value="<?= $sp['qty'] ?>">
                       </td>
                       <td class="price">
-                        <span id="discountPrice-<?=$idSP?>"><?=number_format($sp['discountPrice'])?> vnd</span>
+                        <span id="discountPrice-<?= $idSP ?>"><?= number_format($sp['discountPrice']) ?> vnd</span>
                       </td>
                       <td class="action">
-                        <a style="cursor: pointer;" class="remove-item-cart" id-sp="<?=$idSP?>"><i class="icon-close"></i></a></td>
+                        <a style="cursor: pointer;" class="remove-item-cart" id-sp="<?= $idSP ?>"><i class="icon-close"></i></a></td>
                     </tr>
-                    <?php endforeach?>
+                    <?php endforeach ?>
                   </tbody>
                   <tfoot>
                     <tr>
                       <td colspan="2" rowspan="2"></td>
                       <td colspan="3">Đơn giá gốc (chưa khuyến mãi)</td>
-                      <td colspan="2" class="totalPrice"><?=number_format($data->totalPrice)?> vnd</td>
+                      <td colspan="2" class="totalPrice"><?= number_format($data->totalPrice) ?> vnd</td>
                     </tr>
                     <tr>
                       <td colspan="3"><strong>Tổng thanh toán</strong></td>
-                      <td colspan="2"><strong class="promtPrice"><?=number_format($data->promtPrice)?> vnd</strong></td>
+                      <td colspan="2"><strong class="promtPrice"><?= number_format($data->promtPrice) ?> vnd</strong></td>
                     </tr>
                   </tfoot>
                 </table>
               </div>
-              <div class="cart_navigation"> <a class="continue-btn" href="#"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> <a class="checkout-btn" href="#"><i class="fa fa-check"></i> Proceed to checkout</a> </div>
+              <div class="cart_navigation"> 
+                <a class="continue-btn" href="./"><i class="fa fa-arrow-left"> </i>&nbsp; Tiếp tục mua sắm</a> 
+                <a class="checkout-btn" href="checkout.php"><i class="fa fa-check"></i> Đặt hàng </a> 
+              </div>
             </div>
           </div>
         </div>
