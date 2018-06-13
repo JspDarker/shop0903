@@ -59,14 +59,14 @@ class CheckoutController extends Controller{
                 //http://localhost/shop0903/asdfghfggewsrw2356334/12345678765
                 $link = "http://localhost/shop0903/$token/$tokenDate";
                 $subject = "Xác nhận đơn hàng DH00$idBill";
-                $content = "Chào bạn, $name,
-                            </br>
-                            Cảm ơn bạn đã đặt hàng, tổng tiền thanh toán là: <b>".number_format($promtPrice). " vnđ</b>
-                            </br>
-                            Vui lòng chọn vào <a href='$link'>đây</a> để xác nhận đơn hàng.";
+                $content = "<did>Chào bạn, $name,</did>
+                            <div>Cảm ơn bạn đã đặt hàng, tổng tiền thanh toán là: <b>".number_format($promtPrice). " vnđ</b>.
+                            <br></div>
+                            <div>Vui lòng chọn vào <a href='$link'>đây</a> để xác nhận đơn hàng.</div>";
 
                 sendMail($email, $name,$subject,$content);
                 $_SESSION['success'] = "Vui lòng kiểm tra hộp thư để xác nhận đơn hàng";
+                unset($_SESSION['cart']);
                 header('location:checkout.php');
                 return;
             }
