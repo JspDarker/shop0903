@@ -5,6 +5,16 @@
       <div class="col-main col-sm-12 col-xs-12">
         <div class="page-content checkout-page"><div class="page-title">
           <h2>Đặt hàng</h2>
+          <?php if(isset($_SESSION['success'])):?>
+            <div class="alert alert-success">
+                <?=$_SESSION['success']; unset($_SESSION['success'])?>
+            </div>
+          <?php endif?>
+          <?php if(isset($_SESSION['error'])):?>
+            <div class="alert alert-danger">
+                <?=$_SESSION['error']; unset($_SESSION['error'])?>
+            </div>
+          <?php endif?>
         </div>
             <form method="POST" >
                 <div class="box-border">
