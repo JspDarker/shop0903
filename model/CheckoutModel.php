@@ -37,6 +37,21 @@ class CheckoutModel extends DBConnect{
         return $this->executeQuery($sql);
         
     }
+
+
+    function findBillByToken($token){
+        $sql = "SELECT * FROM bills WHERE token ='$token'";
+        return $this->loadOneRow($sql);
+    }
+
+    function updateStatusBill($id){
+        $sql = "UPDATE bills 
+                SET status=1,
+                token = '',
+                token_date=''
+                WHERE id=$id";
+        return $this->executeQuery($sql);        
+    }
 }
 
 

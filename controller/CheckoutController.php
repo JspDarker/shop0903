@@ -9,7 +9,7 @@ session_start();
 class CheckoutController extends Controller{
 
     function loadCheckoutPage(){
-        return $this->loadView('checkout');
+        return $this->loadView('checkout',[],"Đặt hàng");
     }
 
     function checkOut(){
@@ -84,6 +84,31 @@ class CheckoutController extends Controller{
             return;
         }
     }
+
+    function acceptOrder(){
+        $token = $_GET['token'];
+        $oldTime = $_GET['t'];
+        $nowTime = strtotime(date('Y-m-d H:i:s',time()));
+        if($nowTime - $oldTime <= 86400*3){
+            $model = new CheckoutModel();
+            $bill = $model->findBillByToken($token);
+            if($bill){
+                //update status
+                //print_r($bill);die;
+                $model->updateStatusBill($bill->id);
+                $_SESSION['success'] = "Cảm ơn bạn đã xác nhận, chúng tôi sẽ liên lạc trong ít phút";
+            }
+            else{
+                $_SESSION['error'] = "Liên kết bạn nhập vào không hợp lệ, vui lòng thử lại";
+            }
+        }
+        else{
+            $_SESSION['error'] =  "Thời gian xác nhận đơn hàng đã hết hạn, Vui lòng đặt hàng lại";
+        }
+        header("Location:http://localhost/shop0903/checkout.php");
+    }
+
+
 }
 
 
